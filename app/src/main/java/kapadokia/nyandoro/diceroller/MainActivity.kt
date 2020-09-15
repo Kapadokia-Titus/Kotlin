@@ -20,17 +20,23 @@ class MainActivity : AppCompatActivity() {
 
 
         val rollButton = binding.rollButton
-        rollButton.text ="Hey dummy"
         rollButton.setOnClickListener{
           rollDice()
         }
     }
 
     private fun rollDice() {
-        val updateRoll = binding.diceNumber
-
         // generate a random number between one and six
         val rand  = Random.nextInt(6) +1
-        updateRoll.text = rand.toString()
+        val drawableResource = when (rand){
+            1->R.drawable.dice_1
+            2->R.drawable.dice_2
+            3->R.drawable.dice_3
+            4->R.drawable.dice_4
+            5->R.drawable.dice_5
+            else ->R.drawable.dice_6
+        }
+        val diceImage= binding.diceImage
+        diceImage.setImageResource(drawableResource)
     }
 }
