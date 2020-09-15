@@ -2,6 +2,7 @@ package kapadokia.nyandoro.diceroller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import kapadokia.nyandoro.diceroller.databinding.ActivityMainBinding
 import kotlin.random.Random
@@ -10,6 +11,7 @@ import kotlin.random.Random
 class MainActivity : AppCompatActivity() {
 
    lateinit var binding:ActivityMainBinding
+    lateinit var diceImage: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(view)
 
-
+        diceImage = binding.diceImage
         val rollButton = binding.rollButton
         rollButton.setOnClickListener{
           rollDice()
@@ -36,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             5->R.drawable.dice_5
             else ->R.drawable.dice_6
         }
-        val diceImage= binding.diceImage
+
         diceImage.setImageResource(drawableResource)
     }
 }
