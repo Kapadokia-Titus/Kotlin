@@ -2,6 +2,7 @@ package kapadokia.nyandoro.diceroller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kapadokia.nyandoro.diceroller.databinding.ActivityMainBinding
 
 
@@ -17,7 +18,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
 
-        binding.diceNumber
-        
+        val rollButton = binding.rollButton
+        rollButton.text ="Hey dummy"
+        rollButton.setOnClickListener{
+            Toast.makeText(this, "Hey dummy you clicked me", Toast.LENGTH_LONG).show()
+        }
     }
 }
