@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import kapadokia.nyandoro.diceroller.databinding.ActivityMainBinding
+import kotlin.random.Random
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +22,15 @@ class MainActivity : AppCompatActivity() {
         val rollButton = binding.rollButton
         rollButton.text ="Hey dummy"
         rollButton.setOnClickListener{
-            Toast.makeText(this, "Hey dummy you clicked me", Toast.LENGTH_LONG).show()
+          rollDice()
         }
+    }
+
+    private fun rollDice() {
+        val updateRoll = binding.diceNumber
+
+        // generate a random number between one and six
+        val rand  = Random.nextInt(6) +1
+        updateRoll.text = rand.toString()
     }
 }
